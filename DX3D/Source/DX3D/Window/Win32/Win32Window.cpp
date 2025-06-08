@@ -5,8 +5,9 @@
 #include <functional>
 #include <stdexcept>
 
-#include "../../../../Include/DX3D/Window/Window.h"
+#include "DX3D/Window/Window.h"?
 #include "Windows.h"
+#include "DX3D/Core/Core.h"
 
 static LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     switch (msg) {
@@ -26,7 +27,7 @@ namespace ProtX11 {
         auto registerWindowFunction = []() {
             WNDCLASSEX wc{};
             wc.cbSize = sizeof(WNDCLASSEX);
-            wc.lpszClassName = reinterpret_cast<LPCSTR>(L"ProtX11 Window Class");
+            wc.lpszClassName = "ProtX11WindowClass";
             wc.lpfnWndProc = &WindowProcedure;
             return RegisterClassEx(&wc);
         };
@@ -39,7 +40,7 @@ namespace ProtX11 {
         RECT rc{ 0, 0, 1280, 720};
         AdjustWindowRect(&rc, WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU, false);
 
-        m_handle = CreateWindowEx(NULL, MAKEINTATOM(windowClassId), reinterpret_cast<LPCSTR>(L"Dev://BC | ProtX DirectX11 Window"),
+        m_handle = CreateWindowEx(NULL, MAKEINTATOM(windowClassId), "Dev://BC | ProtX DirectX11 Window",
             WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU, CW_USEDEFAULT, CW_USEDEFAULT,
             rc.right - rc.left, rc.bottom - rc.top,
             NULL, NULL, NULL, NULL);

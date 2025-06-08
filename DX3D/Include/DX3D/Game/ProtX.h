@@ -4,8 +4,9 @@
 
 #ifndef PROTX_H
 #define PROTX_H
-#include "Core.h"
-#include "../Core/Base.h"
+
+#include "DX3D/Core/Core.h"
+#include "DX3D/Core/Base.h"
 
 namespace ProtX11 {
 

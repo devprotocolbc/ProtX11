@@ -3,7 +3,7 @@
 //
 #include <windows.h>
 
-#include "../../../../Include/DX3D/Game/ProtX.h"
+#include "DX3D/Game/ProtX.h"
 
 namespace ProtX11 {
     void ProtX::run(){

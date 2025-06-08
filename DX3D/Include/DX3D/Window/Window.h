@@ -4,7 +4,7 @@
 
 #ifndef WINDOW_H
 #define WINDOW_H
-#include "../Core/Base.h"
+#include "DX3D/Core/Base.h"
 
 namespace ProtX11 {
 

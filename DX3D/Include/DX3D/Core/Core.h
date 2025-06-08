@@ -2,11 +2,9 @@
 // Created by BasLocal on 08/06/2025.
 //
 
-#include <stdexcpt.h>
-#include <memory>
-
 #ifndef CORE_H
 #define CORE_H
+#include <memory>      // used in ProtX.h
 
 namespace ProtX11 {
     class Base;
