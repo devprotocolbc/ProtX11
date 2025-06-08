@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+/DX3D/tmp/
+
+
+# CMake
+cmake-build-debug
+
+# CLion
+.idea
