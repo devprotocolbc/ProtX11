@@ -10,6 +10,11 @@ namespace ProtX11 {
     class Base;
     class Window;
     class ProtX;
+
+    class GraphicsEngine;
+    class RenderSystem;
+
+    class Logger;
 }
 
 #endif //CORE_H

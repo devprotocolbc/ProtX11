@@ -3,9 +3,14 @@
 //
 
 #include <DX3D/Core/Base.h>
+using namespace ProtX11;
 
-ProtX11::Base::Base() {
+Base::Base(const BaseDesc &desc): m_logger(desc.logger) {
 }
 
-ProtX11::Base::~Base() {
+Base::~Base() {
+}
+
+Logger &Base::getLogger() const noexcept {
+    return m_logger;
 }

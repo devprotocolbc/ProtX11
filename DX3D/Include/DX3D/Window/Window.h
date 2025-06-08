@@ -5,19 +5,18 @@
 #ifndef WINDOW_H
 #define WINDOW_H
 #include "DX3D/Core/Base.h"
+#include "DX3D/Core/Common.h"
 
 namespace ProtX11 {
-
-class Window : public Base{
+    class Window : public Base {
     public:
-    Window();
-    virtual ~Window() override;
+        explicit Window(const WindowDesc &desc);
+
+        virtual ~Window() override;
 
     private:
-        void* m_handle{};
-
-};
-
+        void *m_handle{};
+    };
 } // ProtX11
 
 #endif
