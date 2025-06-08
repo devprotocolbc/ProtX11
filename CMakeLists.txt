@@ -7,7 +7,15 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin/")
 
 include_directories(DX3D/Include DX3D/Source)
 
-file(GLOB_RECURSE SOURCES "DX3D/Source/*.cpp")      # -- necessary so not every file has to be added, it's annoying
+set(SOURCES
+    DX3D/Source/DX3D/Core/Base.cpp
+    DX3D/Source/DX3D/Core/Renderer.cpp
+    DX3D/Source/DX3D/Core/Shader.cpp
+    DX3D/Source/DX3D/Core/Texture.cpp
+    DX3D/Source/DX3D/Utils/Logger.cpp
+    DX3D/Source/DX3D/Utils/Timer.cpp
+    # Add other .cpp files here as needed
+)
 
 add_executable(ProtX11
         Game/main.cpp
