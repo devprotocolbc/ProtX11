@@ -16,10 +16,11 @@ namespace ProtX11 {
         m_graphicsEngine = std::make_unique<GraphicsEngine>(GraphicsEngineDesc{m_logger});
         m_display = std::make_unique<Window>(WindowDesc{m_logger});
 
-        m_loggerPtr->log(Logger::LogLevel::Info, "ProtX initialized.");
+        // m_loggerPtr->log(Logger::LogLevel::Info, "ProtX initialized.");
+        ProtXLogInfo("ProtX initialized.");
     }
 
     ProtX::~ProtX() {
-        m_loggerPtr->log(Logger::LogLevel::Warning, "ProtX deallocation started.");
+        ProtXLogWarning("ProtX deallocation started.");
     }
 } // ProtX11
