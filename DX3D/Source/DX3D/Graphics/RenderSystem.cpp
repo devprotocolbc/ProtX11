@@ -11,9 +11,9 @@ namespace ProtX11 {
         D3D_FEATURE_LEVEL featureLevel{};
         UINT createDeviceFlags{};
 
-        // #ifdef _DEBUG
+#ifdef _DEBUG
         createDeviceFlags |= D3D11_CREATE_DEVICE_DEBUG;
-        // #endif
+#endif
         auto hr = D3D11CreateDevice(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, createDeviceFlags, nullptr, 0,
                                     D3D11_SDK_VERSION, &m_d3dDevice, &featureLevel, &m_d3dDContext);
 
