@@ -28,5 +28,5 @@ void ProtX11::Logger::log(LogLevel level, const char *message) const {
     };
 
     if (level > m_logLevel) return;
-    std::clog << "[ProtX11 " << logLeveltoString(m_logLevel) << "]: " << message << std::endl;
+    std::clog << "[ProtX11 " << logLeveltoString(level) << "]: " << message << std::endl;
 }
