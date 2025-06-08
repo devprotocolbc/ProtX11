@@ -8,8 +8,13 @@
 
 
 ProtX11::Logger::Logger(LogLevel logLevel) : m_logLevel(logLevel) {
-    std::clog << "Dev://BC | ProtX DirectX11" << std::endl;
-    std::clog << "--------------------------" << std::endl;
+    std::clog << "██████╗                      █╗   ██╗  ██╗     ██╗ ██╗" << std::endl;
+    std::clog << "██╔══██╗  ████╗  ██████╗    ██║   ╚██╗██╔╝    ███║███║" << std::endl;
+    std::clog << "██████╔╝██╔═══╝ ██╔═══██╗  █████╗  ╚███╔╝     ╚██║╚██║" << std::endl;
+    std::clog << "██╔═══╝ ██║     ██║   ██║  ╚██╔═╝  ██╔██╗      ██║ ██║" << std::endl;
+    std::clog << "██║     ██║     ╚██████╔╝   ██║   ██╔╝ ██╗     ██║ ██║" << std::endl;
+    std::clog << "╚═╝     ╚═╝      ╚═════╝    ╚═╝   ╚═╝  ╚═╝     ╚═╝ ╚═╝\n" << std::endl;
+    std::clog << "--------------Dev://BC | ProtX DirectX11--------------\n\n" << std::endl;
 }
 
 void ProtX11::Logger::log(LogLevel level, const char *message) const {
