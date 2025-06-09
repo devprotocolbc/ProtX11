@@ -7,9 +7,13 @@
 
 namespace ProtX11 {
     GraphicsEngine::GraphicsEngine(const GraphicsEngineDesc &desc): Base(desc.base) {
-        m_renderSystem = std::make_unique<RenderSystem>(RenderSystemDesc{m_logger});
+        m_renderSystem = std::make_shared<RenderSystem>(RenderSystemDesc{m_logger});
     }
 
     GraphicsEngine::~GraphicsEngine() {
+    }
+
+    RenderSystem &GraphicsEngine::getRenderSystem() const noexcept {
+        return *m_renderSystem;
     }
 } // ProtX11

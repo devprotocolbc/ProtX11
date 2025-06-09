@@ -22,7 +22,8 @@ static LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPAR
 }
 
 namespace ProtX11 {
-    Window::Window(const WindowDesc &desc) : Base(desc.base) {
+    Window::Window(const WindowDesc &desc) : Base(desc.base),
+                                             m_size(desc.size) {
         auto registerWindowFunction = []() {
             WNDCLASSEX wc{};
             wc.cbSize = sizeof(WNDCLASSEX);
@@ -36,7 +37,7 @@ namespace ProtX11 {
         if (!windowClassId)
             ProtXLogErrorAndThrow("Failed to register window class (RegisterClassEx failed)");
 
-        RECT rc{0, 0, 1280, 720};
+        RECT rc{0, 0, m_size.width, m_size.height};
         AdjustWindowRect(&rc, WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU, false);
 
         m_handle = CreateWindowEx(NULL, MAKEINTATOM(windowClassId), "Dev://BC | ProtX DirectX11 Window",

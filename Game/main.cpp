@@ -6,7 +6,7 @@
 //
 int main() {
     try {
-        ProtX11::ProtX game({ProtX11::Logger::LogLevel::Info});
+        ProtX11::ProtX game({{1280, 720}, {ProtX11::Logger::LogLevel::Info}});
         game.run();
     } catch (const std::runtime_error &) {
         return EXIT_FAILURE;

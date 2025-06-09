@@ -14,8 +14,9 @@ namespace ProtX11 {
 
         virtual ~Window() override;
 
-    private:
+    protected:
         void *m_handle{};
+        Rect m_size{};
     };
 } // ProtX11
 
