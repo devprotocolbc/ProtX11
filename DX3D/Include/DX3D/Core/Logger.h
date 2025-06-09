@@ -23,6 +23,20 @@ namespace ProtX11 {
     private:
         LogLevel m_logLevel = LogLevel::Error;
     };
+
+#define ProtXLogInfo(message){\
+    getLogger().log((Logger::LogLevel::Info), message);\
+}
+#define ProtXLogWarning(message){\
+    getLogger().log((Logger::LogLevel::Warning), message);\
+}
+#define ProtXLogError(message){\
+    getLogger().log((Logger::LogLevel::Error), message);\
+}
+#define ProtXLogErrorAndThrow(message){\
+    ProtXLogError(message)\
+    throw std::runtime_error(message);\
+}
 }
 
 

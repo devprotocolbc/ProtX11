@@ -5,7 +5,7 @@
 #include <functional>
 #include <stdexcept>
 
-#include "DX3D/Window/Window.h"?
+#include "DX3D/Window/Window.h"
 #include "Windows.h"
 #include "DX3D/Core/Core.h"
 
@@ -22,7 +22,8 @@ static LRESULT CALLBACK WindowProcedure(HWND hWnd, UINT msg, WPARAM wParam, LPAR
 }
 
 namespace ProtX11 {
-    Window::Window(const WindowDesc &desc) : Base(desc.base) {
+    Window::Window(const WindowDesc &desc) : Base(desc.base),
+                                             m_size(desc.size) {
         auto registerWindowFunction = []() {
             WNDCLASSEX wc{};
             wc.cbSize = sizeof(WNDCLASSEX);
@@ -33,13 +34,10 @@ namespace ProtX11 {
 
         static auto windowClassId = std::invoke(registerWindowFunction);
 
-        if (!windowClassId) {
-            getLogger().log(Logger::LogLevel::Error, "Failed to register window class (RegisterClassEx failed)");
+        if (!windowClassId)
+            ProtXLogErrorAndThrow("Failed to register window class (RegisterClassEx failed)");
 
-            throw std::runtime_error("Failed to register window class (RegisterClassEx failed)");
-        }
-
-        RECT rc{0, 0, 1280, 720};
+        RECT rc{0, 0, m_size.width, m_size.height};
         AdjustWindowRect(&rc, WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU, false);
 
         m_handle = CreateWindowEx(NULL, MAKEINTATOM(windowClassId), "Dev://BC | ProtX DirectX11 Window",
@@ -47,10 +45,8 @@ namespace ProtX11 {
                                   rc.right - rc.left, rc.bottom - rc.top,
                                   NULL, NULL, NULL, NULL);
 
-        if (!m_handle) {
-            getLogger().log(Logger::LogLevel::Error, "Failed to create window handle (CreateWindowEx failed)");
-            throw std::runtime_error("Failed to create window handle (CreateWindowEx failed)");
-        }
+        if (!m_handle)
+            ProtXLogErrorAndThrow("Failed to create window handle (CreateWindowEx failed)");
 
         ShowWindow(static_cast<HWND>(m_handle), SW_SHOW);
     }

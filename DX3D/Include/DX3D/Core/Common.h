@@ -4,8 +4,8 @@
 
 #ifndef COMMON_H
 #define COMMON_H
-#include "DX3D/Core/Core.h"
 #include "DX3D/Core/Logger.h"
+#include "DX3D/Math/Rect.h"
 
 namespace ProtX11 {
     struct BaseDesc {
@@ -14,6 +14,12 @@ namespace ProtX11 {
 
     struct WindowDesc {
         BaseDesc base;
+        Rect size{};
+    };
+
+    struct DisplayDesc {
+        WindowDesc window;
+        RenderSystem &renderSystem;
     };
 
     struct GraphicsEngineDesc {
@@ -24,7 +30,14 @@ namespace ProtX11 {
         BaseDesc base;
     };
 
+    struct SwapChainDesc {
+        void *winHandle{};
+        Rect winSize{};
+    };
+
+
     struct ProtXDesc {
+        Rect windowSize{1280, 720};
         Logger::LogLevel logLevel = Logger::LogLevel::Error;
     };
 }

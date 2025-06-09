@@ -16,8 +16,10 @@ namespace ProtX11 {
 
         virtual ~GraphicsEngine() override;
 
+        RenderSystem &getRenderSystem() const noexcept;
+
     private:
-        std::unique_ptr<RenderSystem> m_renderSystem;
+        std::shared_ptr<RenderSystem> m_renderSystem;
     };
 } // ProtX11
 
