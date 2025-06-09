@@ -1,4 +1,6 @@
-# ProtX11
+# ProtX11 (Obsolete)
+
+In the meanwhile it has been decided to move away from the very complex implementation of DX11 and move to the openGL lib immediatly instead. The first main version of ProtX will be an OGL implementation.
 
 ## Protocol X for DirectX 11
 
@@ -15,4 +17,4 @@ is to make a completely self developed one using OpenGL (**ProtX GL**?).
 Chose C++ as a language, as I am not proficient at all, so it is a very good opportunity to learn.
 
 ---
-Made by Bas Calders for Dev://BC :tm: pending 
+Made by Bas Calders for Dev://BC
